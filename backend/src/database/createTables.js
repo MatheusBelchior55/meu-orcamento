@@ -6,7 +6,8 @@ function createTables() {
             id INTEGER PRIMARY KEY AUTOINCREMENT,
             nome TEXT NOT NULL,
             email TEXT NOT NULL UNIQUE,
-            senha TEXT NOT NULL
+            senha TEXT NOT NULL,
+            photo TEXT DEFAULT NULL
         )
     `).run();
 
@@ -23,7 +24,7 @@ function createTables() {
     db.prepare(`
         CREATE TABLE IF NOT EXISTS lancamentos (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
-            descricao TEXT NOT NULL,
+            descricao TEXT,                    -- AGORA OPCIONAL
             valor REAL NOT NULL,
             data TEXT NOT NULL,
             tipo TEXT NOT NULL,
